@@ -1,9 +1,7 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { CoinDataProps } from "../../types/CoinDataProps";
 import { ListItemProps } from "../../types/ListItemProps";
 import Image from "next/image";
-
 
 const ListItem = ({ coin, deleteCoin, index }: ListItemProps) => {
   return (
