@@ -32,7 +32,6 @@ export default function useCoins() {
           (state: CoinDataProps[]) =>
             (state = [{ ...data?.markets[0], coinCode }, ...state])
         );
-        setIsSuccess(true);
         toast.success("Coin added successfully!");
       }
     },
@@ -48,5 +47,5 @@ export default function useCoins() {
     setCoins((state: CoinDataProps[]) => (state = [...filteredCoins]));
   };
 
-  return { deleteCoin, fetchPrices, coins, loading, isSuccess };
+  return { deleteCoin, fetchPrices, coins, loading};
 }
