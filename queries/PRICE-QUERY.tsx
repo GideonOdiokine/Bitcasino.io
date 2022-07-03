@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const PRICE = gql`
-  query price($input: String!) {
+  query price($coinCode: String!) {
     markets(
-      filter: { baseSymbol: { _eq: $input }, quoteSymbol: { _eq: "EUR" } }
+      filter: { baseSymbol: { _eq: $coinCode }, quoteSymbol: { _eq: "EUR" } }
     ) {
       marketSymbol
       ticker {
