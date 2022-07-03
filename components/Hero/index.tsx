@@ -21,6 +21,7 @@ const Hero = () => {
   const { deleteCoin, fetchCoin, loading, coins, isSuccess } = useCoinData();
 
   useEffect(() => {
+    // checking if isSuccess and clear input
     if (isSuccess) setCode("");
   }, [isSuccess]);
 

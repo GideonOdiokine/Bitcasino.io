@@ -38,6 +38,7 @@ export default function useCoins() {
             (state = [{ ...data?.markets[0], coinCode }, ...state])
         );
         setIsSuccess(true);
+        toast.success("Coin added successfully!");
       }
     },
     onError: (error) => {
