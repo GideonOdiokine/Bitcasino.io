@@ -7,13 +7,8 @@ import { CoinDataProps } from "../types/CoinDataProps";
 export default function useCoins() {
   const [coins, setCoins] = useState<CoinDataProps[]>([]);
   const [coinCode, setCoinCode] = useState<string>("");
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
-
-  const fetchCoin = (coinCode: string) => {
-    setCoinCode((state: string) => (state = coinCode));
-    setIsSuccess(false);
-    fetchPrices();
-  };
+  
+  
 
   const [fetchPrices, { loading }] = useLazyQuery(PRICE, {
     variables: { coinCode },
@@ -53,5 +48,5 @@ export default function useCoins() {
     setCoins((state: CoinDataProps[]) => (state = [...filteredCoins]));
   };
 
-  return { deleteCoin, fetchCoin, coins, loading, isSuccess };
+  return { deleteCoin, fetchPrices, coins, loading, isSuccess };
 }
