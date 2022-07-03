@@ -18,7 +18,7 @@ const Hero = () => {
     fetchPrices();
   };
 
-  const { deleteCoin, fetchPrices, loading, coins, isSuccess } = useCoinData();
+  const { deleteCoin, fetchPrices, loading, coins } = useCoinData();
 
  
   return (
