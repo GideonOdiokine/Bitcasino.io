@@ -4,7 +4,7 @@ import ListItem from "./ListItem";
 
 export type CryptoListProps = {
   coins: CoinDataProps[];
-  deleteCoin: (coinCode: string) => void;
+  deleteCoin: (code: string) => void;
 };
 
 const CryptoList = ({ coins, deleteCoin }: CryptoListProps) => {
@@ -13,7 +13,7 @@ const CryptoList = ({ coins, deleteCoin }: CryptoListProps) => {
       {coins?.map((coin: CoinDataProps, index: number) => (
         <ListItem
           coin={coin}
-          key={coin.coinCode}
+          key={index}
           index={index}
           deleteCoin={deleteCoin}
         />

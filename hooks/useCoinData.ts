@@ -7,45 +7,59 @@ import { CoinDataProps } from "../types/CoinDataProps";
 export default function useCoins() {
   const [coins, setCoins] = useState<CoinDataProps[]>([]);
   const [coinCode, setCoinCode] = useState<string>("");
-  
-  
+  const [code, setCode] = useState<string>("");
 
-  const [fetchPrices, { loading }] = useLazyQuery(PRICE, {
-    variables: { coinCode },
+  const [fetchPrices, { loading, error }] = useLazyQuery(PRICE, {
+    variables: {
+      input: coinCode,
+    },
     fetchPolicy: "network-only",
     onCompleted: (data) => {
-      let coinExist = coins.find(
-        (coin: CoinDataProps) => coin.coinCode === coinCode
-      );
+      console.log(data);
+      let coinExist = coins?.find((coin) => coin.coinCode === coinCode);
 
-      let notFound = data.markets.length === 0;
+      let noCoinsFound = data?.markets?.length === 0;
 
       if (coinExist) {
-        toast.error("Coin already exist!");
+        toast.error("Coin already exists");
+        setCode("");
         return;
-      } else if (notFound) {
-        toast.error("Coin not found!");
       }
 
-      if (data && !notFound) {
-        setCoins(
-          (state: CoinDataProps[]) =>
-            (state = [{ ...data?.markets[0], coinCode }, ...state])
-        );
-        toast.success("Coin added successfully!");
+      if (data && noCoinsFound) {
+        toast.error("Coin not found");
+        setCode("");
+        return;
       }
+
+      setCoins(
+        (state: CoinDataProps[]) =>
+          (state = [{ ...data?.markets[0], coinCode }, ...state])
+      );
+      setCode("");
+      toast.success("Coin added successfully!");
     },
     onError: (error) => {
       toast.error(error.message);
     },
   });
 
-  const deleteCoin = (coinCode: string) => {
+  const deleteCoin = (code: string) => {
     let filteredCoins = coins.filter(
-      (coin: CoinDataProps) => coin.coinCode !== coinCode
+      (coin: CoinDataProps) => coin.coinCode !== code
     );
     setCoins((state: CoinDataProps[]) => (state = [...filteredCoins]));
   };
 
-  return { deleteCoin, fetchPrices, coins, loading};
+  return {
+    coins,
+    code,
+    loading,
+    error,
+    setCode,
+    setCoins,
+    setCoinCode,
+    fetchPrices,
+    deleteCoin,
+  };
 }
