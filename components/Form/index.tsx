@@ -1,6 +1,6 @@
 import React from "react";
-import ClipLoader from "react-spinners/ClipLoader";
 import { FormProps } from "../../types/FormProps";
+import Button from "../Button";
 import { Input } from "../Input";
 
 const Form = ({ code, loading, fetchPrices, handleChange }: FormProps) => {
@@ -21,15 +21,13 @@ const Form = ({ code, loading, fetchPrices, handleChange }: FormProps) => {
             value={code}
             onChange={handleChange}
           />
-          <button
+          <Button
             type="submit"
-            disabled={!code || loading}
+            label="Add"
+            code={code}
+            loading={loading}
             onClick={fetchPrices}
-            className="disabled:bg-[#fd4c24bc] disabled:cursor-not-allowed border-0 outline-none bg-[#fd4b24] p-[10px] text-white rounded-[20px] text-sm mb-10 flex items-center justify-center"
-          >
-            <ClipLoader color="#fff" loading={loading} size={20} />
-            {!loading && "Add"}
-          </button>
+          />
         </form>
         <p className="text-sm text-gray-400 text-center tracking-[0.5px]">
           Use of this service is subject to terms and conditions.

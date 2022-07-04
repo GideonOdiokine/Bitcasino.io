@@ -1,6 +1,5 @@
 import { CoinDataProps } from "../../types/CoinDataProps";
-
-import ListItem from "./ListItem";
+import CryptoItem from "./CryptoItem";
 
 export type CryptoListProps = {
   coins: CoinDataProps[];
@@ -11,7 +10,7 @@ const CryptoList = ({ coins, deleteCoin }: CryptoListProps) => {
   return (
     <ul className="mt-[32px] z-[20]">
       {coins?.map((coin: CoinDataProps, index: number) => (
-        <ListItem
+        <CryptoItem
           coin={coin}
           key={index}
           index={index}

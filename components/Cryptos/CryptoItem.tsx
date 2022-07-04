@@ -1,13 +1,12 @@
 import React from "react";
-import CloseIcon from "@mui/icons-material/Close";
-import { ListItemProps } from "../../types/ListItemProps";
+import { CryptoItemProps } from "../../types/CryptoItem";
 import Image from "next/image";
+import Button from "../Button";
 
-const ListItem = ({ coin, deleteCoin, index }: ListItemProps) => {
+const CryptoItem = ({ coin, deleteCoin }: CryptoItemProps) => {
   return (
     <li
       title={coin?.coinCode}
-      key={index}
       className="flex items-center justify-between w-full lg:w-[280px] py-3 border-b-[1px] border-[#9484a4]"
     >
       <div className="flex items-center gap-x-8">
@@ -24,17 +23,13 @@ const ListItem = ({ coin, deleteCoin, index }: ListItemProps) => {
           </div>
         </div>
       </div>
-      <button
+      <Button
         type="button"
-        aria-label={`delete ${coin.coinCode}`}
-        title={`delete ${coin.coinCode}`}
-        className="text-white cursor-pointer z-10"
         onClick={() => deleteCoin(coin.coinCode)}
-      >
-        <CloseIcon color="inherit" style={{ height: "15px" }} />
-      </button>
+        coin={coin}
+      ></Button>
     </li>
   );
 };
 
-export default ListItem;
+export default CryptoItem;
