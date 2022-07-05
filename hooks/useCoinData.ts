@@ -16,9 +16,9 @@ export default function useCoins() {
     fetchPolicy: "network-only",
     onCompleted: (data) => {
       console.log(data);
-      let hasCoin = coins?.some((coin) => coin.coinCode === coinCode);
+      const hasCoin = coins?.some((coin) => coin.coinCode === coinCode);
 
-      let coinsNotFound = data?.markets?.length === 0;
+      const coinsNotFound = data?.markets?.length === 0;
 
       if (hasCoin) {
         toast.error("Coin already exists");
