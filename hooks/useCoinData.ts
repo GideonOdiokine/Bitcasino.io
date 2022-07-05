@@ -16,7 +16,7 @@ export default function useCoins() {
     fetchPolicy: "network-only",
     onCompleted: (data) => {
       console.log(data);
-      const hasCoin = [...new Set(...coins)];
+      const hasCoin = new Set([...coins]);
 
       const coinsNotFound = data?.markets?.length === 0;
 
