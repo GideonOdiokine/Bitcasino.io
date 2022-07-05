@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       {type === "button" && (
         <button
           type="button"
-          aria-label={`delete ${coin.coinCode}`}
+          aria-label={`delete ${coin?.coinCode}`}
           title={`delete ${coin?.coinCode}`}
           className="text-white cursor-pointer z-10"
           onClick={onClick}
