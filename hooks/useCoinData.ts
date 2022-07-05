@@ -56,7 +56,6 @@ export default function useCoins() {
     coins,
     code,
     loading,
-    error,
     setCode,
     setCoins,
     setCoinCode,

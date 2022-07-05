@@ -21,16 +21,12 @@ const Hero = () => {
     coins,
     code,
     loading,
-    error,
     setCode,
     deleteCoin,
     setCoinCode,
     fetchPrices,
   } = useCoinData();
 
-  if (error) {
-    <p className="py-2 text-3xl text-white">Error! {error}</p>;
-  }
   return (
     <div>
       <main className="my-4 lg:mt-10 lg:mb-9" data-testid="hero">
