@@ -20,7 +20,7 @@ export default function useCoins() {
 const existCoin = hasCoin.add(coinCode)
       const coinsNotFound = data?.markets?.length === 0;
 
-      if (hexistCoin) {
+      if (existCoin) {
         toast.error("Coin already exists");
         setCode("");
         return;
