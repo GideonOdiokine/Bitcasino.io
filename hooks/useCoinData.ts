@@ -17,10 +17,10 @@ export default function useCoins() {
     onCompleted: (data) => {
       console.log(data);
       const hasCoin = new Set([...coins]);
-hasCoin.add(coinCode)
+const existCoin = hasCoin.add(coinCode)
       const coinsNotFound = data?.markets?.length === 0;
 
-      if (hasCoin) {
+      if (hexistCoin) {
         toast.error("Coin already exists");
         setCode("");
         return;
