@@ -9,13 +9,8 @@ export type CryptoListProps = {
 const CryptoList = ({ coins, deleteCoin }: CryptoListProps) => {
   return (
     <ul className="mt-[32px] z-[20]">
-      {coins?.map((coin: CoinDataProps, index: number) => (
-        <CryptoItem
-          coin={coin}
-          key={index}
-          index={index}
-          deleteCoin={deleteCoin}
-        />
+      {coins?.map((coin: CoinDataProps) => (
+        <CryptoItem coin={coin} key={coin?.coinCode} deleteCoin={deleteCoin} />
       ))}
     </ul>
   );
