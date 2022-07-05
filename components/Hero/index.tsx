@@ -4,7 +4,7 @@ import Intro from "../Intro";
 import useCoinData from "../../hooks/useCoinData";
 import CryptoList from "../Cryptos";
 
-const Hero = ({}: JSX.Element | JSX.Element[]) => {
+const Hero = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCode(event.target.value.toUpperCase());
   };
