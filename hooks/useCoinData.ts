@@ -50,7 +50,7 @@ export default function useCoins() {
       (coin: CoinDataProps) => coin.coinCode !== code
     );
     setCoins((state: CoinDataProps[]) => (state = [...filteredCoins]));
-toast.danger("Coin removed successfully!");
+toast.warning("Coin removed successfully!");
     },
   };
 
