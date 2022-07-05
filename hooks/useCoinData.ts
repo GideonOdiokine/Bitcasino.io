@@ -19,7 +19,7 @@ export default function useCoins() {
       let coinExist = [...new Set(coinCode)]
       
 
-      let noCoinsFound = data?.markets?.length === 0;
+      let coinsNotFound = data?.markets?.length === 0;
 
       if (coinExist) {
         toast.error("Coin already exists");
@@ -27,7 +27,7 @@ export default function useCoins() {
         return;
       }
 
-      if (data && noCoinsFound) {
+      if (data && coinsNotFound) {
         toast.error("Coin not found");
         setCode("");
         return;
@@ -50,6 +50,8 @@ export default function useCoins() {
       (coin: CoinDataProps) => coin.coinCode !== code
     );
     setCoins((state: CoinDataProps[]) => (state = [...filteredCoins]));
+toast.danger("Coin removed successfully!");
+    },
   };
 
   return {
