@@ -17,7 +17,7 @@ export default function useCoins() {
     onCompleted: (data) => {
       console.log(data);
       const hasCoin = new Set([...coins]);
-
+hasCoin.add(coinCode)
       const coinsNotFound = data?.markets?.length === 0;
 
       if (hasCoin) {
