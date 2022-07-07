@@ -19,7 +19,7 @@ const CryptoItem = ({ coin, deleteCoin }: CryptoItemProps) => {
         <div className="flex flex-col gap-2">
           <div className="text-white capitalize">{coin?.coinCode}</div>
           <div className="text-[#9484a4] text-[13px]">
-            {Number(coin?.ticker?.lastPrice).toFixed(2)}€
+            {Number(coin?.ticker?.lastPrice || 0).toFixed(2)}€
           </div>
         </div>
       </div>
