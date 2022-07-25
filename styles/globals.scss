@@ -33,15 +33,3 @@ body {
     background-size: cover;
   }
 }
-
-
-
-@media only screen and (max-width: 768px) {
-  .main {
-    &::after {
-      right: -15.625rem;
-      width: 25rem;
-      height: 28.125rem;
-    }
-  }
-}
