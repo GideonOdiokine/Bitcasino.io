@@ -1,10 +1,6 @@
 import { CoinDataProps } from "../../types/CoinDataProps";
+import { CryptoListProps } from "../../types/CryptoListProps";
 import CryptoItem from "./CryptoItem";
-
-export type CryptoListProps = {
-  coins: CoinDataProps[];
-  deleteCoin: (code: string) => void;
-};
 
 const CryptoList = ({ coins, deleteCoin }: CryptoListProps) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { CryptoItemProps } from "../../types/CryptoItem";
 import Image from "next/image";
-import Button from "../Button";
+import CloseButton from "../CloseButton";
 
 const CryptoItem = ({ coin, deleteCoin }: CryptoItemProps) => {
   return (
@@ -23,11 +23,7 @@ const CryptoItem = ({ coin, deleteCoin }: CryptoItemProps) => {
           </div>
         </div>
       </div>
-      <Button
-        type="button"
-        onClick={() => deleteCoin(coin.coinCode)}
-        coin={coin}
-      ></Button>
+      <CloseButton onClick={deleteCoin} coin={coin}></CloseButton>
     </li>
   );
 };

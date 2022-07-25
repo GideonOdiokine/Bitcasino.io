@@ -8,3 +8,8 @@ export type ButtonProps = {
   type: "submit" | "button";
   onClick: (event: React.MouseEvent<HTMLElement>) => void;
 };
+
+export type CloseButtonProps = {
+  coin: CoinDataProps;
+  onClick: (coinCode: string) => void;
+};

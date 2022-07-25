@@ -15,7 +15,6 @@ export default function useCoins() {
     },
     fetchPolicy: "network-only",
     onCompleted: (data) => {
-      console.log(data);
       const hasCoin = coins?.some((coin) => coin.coinCode === coinCode);
 
       const coinsNotFound = data?.markets?.length === 0;
@@ -45,7 +44,7 @@ export default function useCoins() {
   });
 
   const deleteCoin = (code: string) => {
-    let filteredCoins = coins.filter(
+    const filteredCoins = coins.filter(
       (coin: CoinDataProps) => coin.coinCode !== code
     );
     setCoins((state: CoinDataProps[]) => (state = [...filteredCoins]));

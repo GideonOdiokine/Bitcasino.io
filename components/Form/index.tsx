@@ -1,7 +1,13 @@
 import React from "react";
-import { FormProps } from "../../types/FormProps";
 import Button from "../Button";
 import { Input } from "../Input";
+
+type FormProps = {
+  code: string;
+  loading: boolean;
+  fetchPrices: (event: React.MouseEvent<HTMLElement>) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
 const Form = ({ code, loading, fetchPrices, handleChange }: FormProps) => {
   return (
